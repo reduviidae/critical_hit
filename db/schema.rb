@@ -10,30 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_24_215433) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_24_230952) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "apartment"
+    t.string "country"
+    t.string "label"
+    t.string "line_1"
+    t.string "line_2"
+    t.integer "postal_code"
+    t.string "state"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
 
   create_table "genders", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_genders_on_name"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email", null: false
-    t.string "phone"
-    t.string "display_name", null: false
-    t.date "birth_date", null: false
-    t.string "steam_profile_name"
-    t.string "password_digest", null: false
-    t.boolean "trans", null: false
-    t.boolean "nonbinary", null: false
-    t.integer "sexuality"
     t.text "attracted_to", default: [], array: true
+    t.date "birth_date", null: false
+    t.string "display_name", null: false
+    t.string "email", null: false
+    t.string "first_name"
+    t.boolean "gender_nonconforming"
+    t.string "last_name"
+    t.boolean "nonbinary", null: false
+    t.string "password_digest", null: false
+    t.string "phone"
     t.boolean "queers_only"
+    t.integer "sexuality"
+    t.string "steam_profile_name"
+    t.boolean "t4t_only"
+    t.boolean "trans", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
