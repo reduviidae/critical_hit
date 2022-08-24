@@ -3,14 +3,14 @@ class CreateUser < ActiveRecord::Migration[7.0]
     create_table :users do |t|
       t.string :first_name
       t.string :last_name
-      t.string :email
+      t.string :email, null: false
       t.string :phone
-      t.string :display_name
-      t.date :birth_date
+      t.string :display_name, null: false
+      t.date :birth_date, null: false
       t.string :steam_profile_name
-      t.string :password_digest
-      t.boolean :trans
-      t.boolean :nonbinary
+      t.string :password_digest, null: false
+      t.boolean :trans, null: false
+      t.boolean :nonbinary, null: false
       t.integer :sexuality
       t.text :attracted_to, array: true, default: []
       t.boolean :queers_only

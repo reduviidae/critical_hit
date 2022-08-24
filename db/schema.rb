@@ -23,14 +23,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_24_215433) do
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "email"
+    t.string "email", null: false
     t.string "phone"
-    t.string "display_name"
-    t.date "birth_date"
+    t.string "display_name", null: false
+    t.date "birth_date", null: false
     t.string "steam_profile_name"
-    t.string "password_digest"
-    t.boolean "trans"
-    t.boolean "nonbinary"
+    t.string "password_digest", null: false
+    t.boolean "trans", null: false
+    t.boolean "nonbinary", null: false
     t.integer "sexuality"
     t.text "attracted_to", default: [], array: true
     t.boolean "queers_only"
