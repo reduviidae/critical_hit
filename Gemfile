@@ -52,8 +52,24 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
+  # Debug gems
+  gem 'awesome_print'
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+  gem 'pry-rails'
+  
+  # fake data
+  gem 'factory_bot_rails'
+  gem 'faker'
+  
+  # speed up development
+  gem 'spring'
+  
+  # testing
+  gem "rspec-rails", ">=3.9.0"
 end
 
 group :development do
