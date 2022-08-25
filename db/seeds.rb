@@ -1,7 +1,7 @@
 # Create Genders
-Gender.create('woman')
-Gender.create('man')
-Gender.create('gender fluid')
-Gender.create('gender queer')
-Gender.create('agender')
-Gender.create('questioning')
+Gender.create(name: 'woman')
+Gender.create(name: 'man')
+Gender.create(name: 'gender fluid')
+Gender.create(name: 'gender queer')
+Gender.create(name: 'agender')
+Gender.create(name: 'questioning')

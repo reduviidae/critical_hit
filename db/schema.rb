@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_24_230952) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_25_232934) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "addresses", force: :cascade do |t|
     t.string "apartment"
+    t.string "city"
     t.string "country"
     t.string "label"
     t.string "line_1"
@@ -35,14 +36,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_24_230952) do
     t.index ["name"], name: "index_genders_on_name"
   end
 
+  create_table "user_genders", force: :cascade do |t|
+    t.bigint "gender_id"
+    t.boolean "primary"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gender_id"], name: "index_user_genders_on_gender_id"
+    t.index ["user_id"], name: "index_user_genders_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.text "attracted_to", default: [], array: true
     t.date "birth_date", null: false
     t.string "display_name", null: false
     t.string "email", null: false
-    t.string "first_name"
     t.boolean "gender_nonconforming"
-    t.string "last_name"
     t.boolean "nonbinary", null: false
     t.string "password_digest", null: false
     t.string "phone"
