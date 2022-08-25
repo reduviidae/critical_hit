@@ -5,9 +5,7 @@ class CreateUser < ActiveRecord::Migration[7.0]
       t.date :birth_date, null: false
       t.string :display_name, null: false
       t.string :email, null: false
-      t.string :first_name
       t.boolean :gender_nonconforming
-      t.string :last_name
       t.boolean :nonbinary, null: false
       t.string :password_digest, null: false
       t.string :phone
