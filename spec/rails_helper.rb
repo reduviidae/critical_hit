@@ -1,4 +1,9 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+
+# require and initiate simplecov
+require 'simplecov'
+SimpleCov.start
+
 require 'spec_helper'
 require_relative 'support/factory_bot'
 ENV['RAILS_ENV'] ||= 'test'
