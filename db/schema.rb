@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_25_232934) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_31_223352) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -36,14 +36,25 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_25_232934) do
     t.index ["name"], name: "index_genders_on_name"
   end
 
-  create_table "user_genders", force: :cascade do |t|
-    t.bigint "gender_id"
+  create_table "user_identities", force: :cascade do |t|
     t.boolean "primary"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["gender_id"], name: "index_user_genders_on_gender_id"
-    t.index ["user_id"], name: "index_user_genders_on_user_id"
+    t.boolean "gender_nonconforming"
+    t.boolean "nonbinary"
+    t.boolean "trans"
+    t.index ["user_id"], name: "index_user_identities_on_user_id"
+  end
+
+  create_table "user_identity_genders", force: :cascade do |t|
+    t.bigint "user_identity_id"
+    t.bigint "gender_id"
+    t.boolean "primary"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gender_id"], name: "index_user_identity_genders_on_gender_id"
+    t.index ["user_identity_id"], name: "index_user_identity_genders_on_user_identity_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,15 +62,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_25_232934) do
     t.date "birth_date", null: false
     t.string "display_name", null: false
     t.string "email", null: false
-    t.boolean "gender_nonconforming"
-    t.boolean "nonbinary", null: false
     t.string "password_digest", null: false
     t.string "phone"
     t.boolean "queers_only"
     t.integer "sexuality"
     t.string "steam_profile_name"
     t.boolean "t4t_only"
-    t.boolean "trans", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
