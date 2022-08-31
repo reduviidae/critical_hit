@@ -20,6 +20,8 @@ describe User, type: :model do
 
   context 'associations' do
     it { should have_many(:addresses) }
-    it { should have_many(:genders) }
+    it { should have_one(:user_identity) }
+    it { should have_many(:user_identity_genders).through(:user_identity) }
+    it { should have_many(:genders).through(:user_identity_genders) }
   end
 end

@@ -4,8 +4,6 @@ FactoryBot.define do
     birth_date { Faker::Date.birthday(min_age: 18) }
     display_name { Faker::Lorem.unique.word }
     email { Faker::Internet.unique.email }
-    gender_nonconforming { Faker::Boolean.boolean }
-    nonbinary { Faker::Boolean.boolean }
     password_digest { Faker::Internet.password(
         max_length: 50,
         mix_case: true,
@@ -17,6 +15,5 @@ FactoryBot.define do
     sexuality { SEXUALITIES.values.sample }
     steam_profile_name { Faker::Internet.username }
     t4t_only { Faker::Boolean.boolean }
-    trans { Faker::Boolean.boolean }
   end
 end
