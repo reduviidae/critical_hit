@@ -4,7 +4,7 @@ FactoryBot.define do
     country { Faker::Address.country }
     label { ADDRESS_LABELS.sample }
     line_1 { Faker::Address.street_address }
-    postal_code {Faker::Address.postcode }
-    state { Faker::Address.state}
+    postal_code { Faker::Address.postcode }
+    state { Faker::Address.state }
   end
 end

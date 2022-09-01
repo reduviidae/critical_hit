@@ -6,5 +6,5 @@ SEXUALITIES = {
   pansexual: 4,
   queer: 5,
   questioning: 6,
-  straight: 7
+  straight: 7,
 }.freeze
