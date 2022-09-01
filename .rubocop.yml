@@ -18,6 +18,11 @@ AllCops:
     - 'config/environments/*'
     - 'node_modules/**/*'
 
+# Lint Cops
+Lint/MissingSuper:
+  Exclude:
+    - 'app/services/**/*'
+
 # Metrics Cops
 
 Metrics/ClassLength:
@@ -38,7 +43,7 @@ Metrics/ParameterLists:
 Metrics/MethodLength:
   Description: 'Avoid methods longer than 5 lines of code.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#short-methods'
-  Max: 5
+  Max: 8
   Enabled: true
 
 Metrics/BlockLength:
@@ -54,6 +59,10 @@ Metrics/BlockLength:
     - draw
     - configure
     - group
+
+# Rspec Cops
+RSpec/NestedGroups:
+  Max: 5
 
 # Style Cops
 
