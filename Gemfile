@@ -67,6 +67,7 @@ group :development, :test do
 
   # testing
   gem 'rspec-rails', '>=3.9.0'
+  gem 'rspec-api_helpers', '>=1.0.3'
 end
 
 group :development do
