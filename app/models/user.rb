@@ -9,8 +9,6 @@ class User < ApplicationRecord
             presence: true,
             comparison: {
               less_than_or_equal_to: 18.years.ago,
-              # TODO: implement locale error messages
-              message: 'You must be at least 18 years old to use this site.',
             }
 
   validates :display_name, presence: true
