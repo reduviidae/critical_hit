@@ -1,5 +1,3 @@
-require 'pry'
-
 class User < ApplicationRecord
   # has_secure_password
 
@@ -9,6 +7,7 @@ class User < ApplicationRecord
             presence: true,
             comparison: {
               less_than_or_equal_to: 18.years.ago,
+              message: :too_young,
             }
 
   validates :display_name, presence: true

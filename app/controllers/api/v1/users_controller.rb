@@ -13,8 +13,11 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    render json: @user
+    if Creation::User.call(user_params)
+      render json: user
+    else
+      render json: { errors: @user.errors }, status: :unprocessable_entity
+    end
   end
 
   private

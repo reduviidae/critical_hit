@@ -56,13 +56,16 @@ describe 'api/v1/users', type: :request do
 
       context 'when valid params are provided' do
         it 'creates a new user' do
+          post_create(user_params)
           expect { post_create(user_params) }.to change(User, :count).by(1)
         end
       end
 
       context 'without valid params' do
         it 'does not allow creating a user under 18 years of age' do
-          expect { post_create(user_params.except(:birth_date)) }.to raise 'octopus'
+          user_params[:user][:birth_date] = '2007-01-01'
+          binding.pry
+          expect { post_create(user_params) }.to raise 'octopus'
         end
       end
     end
