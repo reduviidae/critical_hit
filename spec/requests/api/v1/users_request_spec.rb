@@ -38,20 +38,32 @@ describe 'api/v1/users', type: :request do
   context 'when a query does alter the database' do
     let(:user_params) {
       {
-        birth_date: '1980-01-01',
-        display_name: 'walnut',
-        email: 'walnut@walnut.com',
-        password: 'password',
-        phone: '5108750087',
-        steam_profile_name: 'walnut',
+        user: {
+          birth_date: '1980-01-01',
+          display_name: 'walnut',
+          email: 'walnut@walnut.com',
+          password_digest: 'password',
+          phone: '5108750087',
+          steam_profile_name: 'walnut',
+        },
       }
     }
 
     describe 'POST #create' do
+      def post_create(params)
+        post api_v1_users_path(params)
+      end
+
       context 'when valid params are provided' do
+        it 'creates a new user' do
+          expect { post_create(user_params) }.to change(User, :count).by(1)
+        end
       end
 
       context 'without valid params' do
+        it 'does not allow creating a user under 18 years of age' do
+          expect { post_create(user_params.except(:birth_date)) }.to raise 'octopus'
+        end
       end
     end
 

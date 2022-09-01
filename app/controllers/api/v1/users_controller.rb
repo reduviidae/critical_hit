@@ -1,7 +1,20 @@
 class Api::V1::UsersController < ApplicationController
+  attr_accessor :attracted_to, :birth_date, :display_name, :email, :password, :phone, :queers_only,
+                :steam_profile_name, :t4t_only
+
   def index
     @users = User.all
     render json: @users
+  end
+
+  def show
+    @user = User.find(params[:id])
+    render json: @user
+  end
+
+  def create
+    @user = User.new(user_params)
+    render json: @user
   end
 
   private
@@ -12,7 +25,7 @@ class Api::V1::UsersController < ApplicationController
       :birth_date,
       :display_name,
       :email,
-      :password,
+      :password_digest,
       :phone,
       :queers_only,
       :steam_profile_name,

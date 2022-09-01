@@ -55,6 +55,10 @@ Metrics/BlockLength:
     - configure
     - group
 
+# Rspec Cops
+RSpec/NestedGroups:
+  MaxNesting: 5
+
 # Style Cops
 
 Style/BlockDelimiters:
