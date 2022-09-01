@@ -1,5 +1,5 @@
-ADDRESS_LABELS = [
-  'Home',
-  'Vacation',
-  'Work'
+ADDRESS_LABELS = %w[
+  Home
+  Vacation
+  Work
 ].freeze

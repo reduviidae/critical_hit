@@ -4,10 +4,11 @@ FactoryBot.define do
     birth_date { Faker::Date.birthday(min_age: 18) }
     display_name { Faker::Lorem.unique.word }
     email { Faker::Internet.unique.email }
-    password_digest { Faker::Internet.password(
+    password_digest {
+      Faker::Internet.password(
         max_length: 50,
         mix_case: true,
-        special_characters: true
+        special_characters: true,
       )
     }
     phone { Faker::PhoneNumber.cell_phone }

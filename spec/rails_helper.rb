@@ -9,7 +9,7 @@ require_relative 'support/factory_bot'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -73,9 +73,8 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-
-  # Include configuration files from support folder
-  Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+  # Use the routes helper for request specs
+  config.include Rails.application.routes.url_helpers, type: :request
 
   # configure shoulda gem
   Shoulda::Matchers.configure do |config|
@@ -84,4 +83,7 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
+  
+  # Include configuration files from support folder
+  Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 end
