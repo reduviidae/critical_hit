@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   enum sexuality: SEXUALITIES, _prefix: true
 
-  validates :birth_date,
+  validates :birthday,
             presence: true,
             comparison: {
               less_than_or_equal_to: 18.years.ago,

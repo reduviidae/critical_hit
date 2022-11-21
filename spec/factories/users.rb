@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :user do
     attracted_to { Gender.pluck(:id).sample(3) }
-    birth_date { Faker::Date.birthday(min_age: 18) }
+    birthday { Faker::Date.birthday(min_age: 18) }
     display_name { Faker::Lorem.unique.word }
     email { Faker::Internet.unique.email }
     password_digest {
