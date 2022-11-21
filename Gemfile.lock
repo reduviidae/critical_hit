@@ -199,6 +199,9 @@ GEM
     reline (0.3.1)
       io-console (~> 0.5)
     rexml (3.2.5)
+    rspec-api_helpers (1.0.4)
+      activesupport (> 4.2)
+      rspec-core (> 3.1)
     rspec-core (3.11.0)
       rspec-support (~> 3.11.0)
     rspec-expectations (3.11.0)
@@ -312,6 +315,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 5.0)
   rails (~> 7.0.3, >= 7.0.3.1)
+  rspec-api_helpers (>= 1.0.3)
   rspec-rails (>= 3.9.0)
   rubocop
   rubocop-performance
