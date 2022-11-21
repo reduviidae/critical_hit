@@ -6,8 +6,8 @@ describe User, type: :model do
     it { is_expected.to validate_presence_of(:email) }
     it { is_expected.to validate_presence_of(:password_digest) }
 
-    describe 'birth_date' do
-      it { is_expected.to validate_presence_of(:birth_date) }
+    describe 'birthday' do
+      it { is_expected.to validate_presence_of(:birthday) }
 
       it 'allows a user at leas 18 years of age' do
         user = build(:user)
@@ -15,7 +15,7 @@ describe User, type: :model do
       end
 
       it 'does not allow a user at 18 years of age' do
-        user = build(:user, birth_date: 15.years.ago)
+        user = build(:user, birthday: 15.years.ago)
         expect(user).not_to be_valid
       end
     end

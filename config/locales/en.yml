@@ -5,7 +5,7 @@ en:
         models:
           user:
             attributes:
-              birth_date: "You must be at least 18 years old to use this site."
+              birthday: "You must be at least 18 years old to use this site."
 
 # Files in the config/locales directory are used for internationalization
 # and are automatically loaded by Rails. If you want to use locales other
